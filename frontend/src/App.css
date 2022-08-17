@@ -1,0 +1,47 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; 
+}
+
+.App{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+}
+
+.form{
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+}
+label{
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-left: 10px;
+}
+input{
+  width: 300px;
+  line-height: 2;
+  padding: 5px 10px;
+  margin-bottom: 15px;
+  border-radius: 10px;
+  border: 2px solid rgb(96, 4, 96);
+  color: rgb(70, 69, 69);
+  font-weight: 600;
+}
+
+button{
+  background: none;
+  border: 1px solid rgb(96, 4, 96);
+  padding: 10px 20px;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+button:hover{
+  scale: 1.1;
+  transition: .2s;
+}
