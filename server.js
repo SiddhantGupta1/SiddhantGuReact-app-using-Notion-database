@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require('express');
 const {Client} = require('@notionhq/client');
 const cors = require('cors');
@@ -10,10 +11,11 @@ app.use(cors());
 
 const PORT = 4000;
 const HOST = "localhost";
+const notionSecret = process.env.NOTION_SECRET;
+const databaseId = process.env.NOTION_DATABASE_ID;
 
-const notion = new Client({auth: "secret_gok5jCGm3Rrr5XVSnwE0hjaGi2ytdaXYqLUEP6B4Ryw"});
 
-const databaseId = "6e1eb23fdef440f3a3f9b12aa7138c52";
+const notion = new Client({auth: notionSecret });
 
 app.post('/submitToNotion', jsonParser, async (req,res) => {
     const name = req.body.name;
@@ -44,13 +46,7 @@ app.post('/submitToNotion', jsonParser, async (req,res) => {
                     ]
                 },
                 "Url": {
-                    rich_text: [
-                        {
-                            text: {
-                                content: url
-                            }
-                        }
-                    ]
+                    "url": url
                 }
             }
         })
